@@ -10970,3 +10970,22 @@ section.resume-section .resume-section-content {
     padding-bottom: 5rem;
   }
 }
+/* Ajuste de imagen de perfil solo en móvil */
+@media (max-width: 767.98px) {
+  .img-profile {
+    width: 120px !important;
+    height: 120px !important;
+    display: block;
+    margin: 5px auto !important;
+  }
+}
+
+/* Ajuste de imagen de perfil solo en tabletas */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .img-profile {
+    width: 150px !important;
+    height: 150px !important;
+    display: block;
+    margin: 5px auto !important;
+  }
+}
