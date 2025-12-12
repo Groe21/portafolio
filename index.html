@@ -1,229 +1,696 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Portafolio</title>
+        <meta name="description" content="Portafolio profesional de Oscar Emilio Guerrero Romero - Desarrollador Backend especializado en PHP, Laravel, MySQL y PostgreSQL" />
+        <meta name="author" content="Oscar Emilio Guerrero Romero" />
+        <meta name="keywords" content="Desarrollador Backend, PHP, Laravel, MySQL, PostgreSQL, Desarrollador Web, Ecuador" />
+        <title>Emilio Guerrero | Desarrollador Backend</title>
         <link rel="icon" type="image/x-icon" href="assets/img/portafolio.png" />
-        <!-- Font Awesome icons (free version)-->
+        <!-- Font Awesome icons -->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
+        <!-- Google fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS -->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top" id="sideNav">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">
-                <span class="d-block d-lg-none">Emilio Guerrero</span>
-                <span class=""><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/perfil.jpg" alt="..." /></span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Sobre mi</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Experiencia</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Educación</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Habilidades</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Intereses</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Certificaciones</a></li>
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="#home" class="nav-logo">EG<span>.</span></a>
+                <button class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="nav-link">Inicio</a></li>
+                    <li><a href="#about" class="nav-link">Sobre mí</a></li>
+                    <li><a href="#services" class="nav-link">Servicios</a></li>
+                    <li><a href="#projects" class="nav-link">Proyectos</a></li>
+                    <li><a href="#skills" class="nav-link">Habilidades</a></li>
+                    <li><a href="#contact" class="nav-link">Contacto</a></li>
                 </ul>
             </div>
         </nav>
-        <!-- Page Content-->
-        <div class="container-fluid p-0">
-            <!-- About-->
-            <section class="resume-section" id="about">
-                <div class="resume-section-content">
-                    <h1 class="mb-0">
-                        Oscar Emilio
-                        <span class="text-secondary">Guerrero Romero</span>
-                    </h1>
-                    <div class="subheading mb-5">
-                        Pasaje, El Oro, Ecuador · 09611154178 · 
-                        <p class="text-warning">guerreroemilio001@gmail.com</p>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-greeting">Hola, soy</h1>
+                        <h2 class="hero-name">Oscar Emilio Guerrero</h2>
+                        <h3 class="hero-title">Desarrollador Backend | PHP, Laravel | MySQL/PostgreSQL | Ubuntu Server</h3>
+                        <p class="hero-description">
+                            Estudiante de Tecnología Superior en Desarrollo de Software con pasión por crear soluciones robustas y eficientes. 
+                            Especializado en desarrollo backend, APIs REST y administración de servidores Linux.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="assets/cv/CV_Emilio_Guerrero.pdf" class="btn btn-primary" download>
+                                <i class="fas fa-download"></i> Descargar CV
+                            </a>
+                            <a href="#contact" class="btn btn-secondary">
+                                <i class="fas fa-envelope"></i> Contactar
+                            </a>
+                        </div>
+                        <div class="hero-social">
+                            <a href="https://www.linkedin.com/in/emilio-guerrero-80b964280" target="_blank" class="social-link">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/Groe21" target="_blank" class="social-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
                     </div>
-                    <p class="lead">Soy un estudiante apasionado de Tecnología Superior en Desarrollo de Software con un enfoque en backend, bases de datos y creación de APIs.</p>
-                    <p class="lead">Actualmente cursando el cuarto ciclo de mi carrera, me especializo en la implementación de soluciones robustas utilizando tecnologías como PHP, MySQL y PostgreSQL. A lo largo de mi carrera, he adquirido experiencia trabajando en entornos Linux, utilizando Ubuntu Server para gestionar y desplegar aplicaciones, incluidas soluciones de almacenamiento y gestión documental.</p>
-                    <p class="lead">He configurado y gestionado un servidor local en mi casa, utilizando Nextcloud y administrado con MySQL y PostgreSQL, lo que me ha permitido practicar el despliegue de APIs y la administración remota de servidores. Utilizo herramientas como Cockpit para administrar el servidor de manera remota, lo que me ha dado una visión completa de las operaciones de un servidor real.</p>
-                    <p class="lead">Mi objetivo es seguir creciendo como desarrollador, explorando nuevas tecnologías y aplicando mis conocimientos para resolver problemas reales de manera eficiente. Estoy buscando colaborar en proyectos que me permitan seguir aprendiendo y aplicando mis habilidades de forma práctica.</p>
-                    <p class="lead">Como desarrollador junior, aporto una mentalidad analítica, habilidades sólidas para la resolución de problemas y un entusiasmo genuino por aprender y colaborar en equipos dinámicos.</p>
-                    <div class="social-icons">
-                        <a class="social-icon" href="https://www.linkedin.com/in/emilio-guerrero-80b964280" target="_blank">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a class="social-icon" href="https://github.com/Groe21" target="_blank">
+                    <div class="hero-image">
+                        <div class="image-wrapper">
+                            <img src="assets/img/perfil.jpg" alt="Emilio Guerrero" />
+                            <div class="image-overlay"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <a href="#about">
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Sobre Mí</h2>
+                    <p class="section-subtitle">Conóceme mejor</p>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>
+                            Soy un estudiante apasionado de Tecnología Superior en Desarrollo de Software con un enfoque en backend, 
+                            bases de datos y creación de APIs. Actualmente cursando el cuarto ciclo de mi carrera, me especializo en 
+                            la implementación de soluciones robustas utilizando tecnologías como PHP, MySQL y PostgreSQL.
+                        </p>
+                        <p>
+                            He configurado y gestionado un servidor local en mi casa, utilizando Nextcloud y administrado con MySQL 
+                            y PostgreSQL, lo que me ha permitido practicar el despliegue de APIs y la administración remota de servidores. 
+                            Utilizo herramientas como Cockpit para administrar el servidor de manera remota.
+                        </p>
+                        <p>
+                            Mi objetivo es seguir creciendo como desarrollador, explorando nuevas tecnologías y aplicando mis conocimientos 
+                            para resolver problemas reales de manera eficiente. Como desarrollador junior, aporto una mentalidad analítica, 
+                            habilidades sólidas para la resolución de problemas y un entusiasmo genuino por aprender y colaborar en equipos dinámicos.
+                        </p>
+                        <div class="about-info">
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Quinidé, Esmeraldas, Ecuador</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>guerreroemilio001@gmail.com</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+593 96 111 5417</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h4 class="stat-number">2+</h4>
+                            <p class="stat-label">Años Programando</p>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <h4 class="stat-number">5+</h4>
+                            <p class="stat-label">Proyectos Completados</p>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <h4 class="stat-number">4</h4>
+                            <p class="stat-label">Certificaciones</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Mis Servicios</h2>
+                    <p class="section-subtitle">¿Qué puedo hacer por ti?</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Desarrollo Web</h3>
+                        <p>Páginas web corporativas, landing pages y sitios institucionales modernos, responsivos y optimizados para SEO.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3>Desarrollo Backend</h3>
+                        <p>Sistemas administrativos robustos, APIs REST y soluciones de gestión documental con PHP, Laravel y MySQL/PostgreSQL.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>Bases de Datos</h3>
+                        <p>Diseño, implementación y optimización de bases de datos relacionales con MySQL y PostgreSQL.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3>E-commerce Básico</h3>
+                        <p>Tiendas online funcionales con integración de sistemas de pago y gestión de productos.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>Despliegue en Servidores</h3>
+                        <p>Configuración y optimización de aplicaciones en servidores Ubuntu, con administración remota y seguridad.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Integración de APIs</h3>
+                        <p>Desarrollo e integración de APIs REST para conectar sistemas y automatizar procesos empresariales.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Proyectos Destacados</h2>
+                    <p class="section-subtitle">Algunos de mis trabajos recientes</p>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="assets/img/proyecto-cimo.jpg" alt="Proyecto CIMO" onerror="this.src='assets/img/placeholder-project.jpg'">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link" title="Ver más">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Plataforma Web CIMO</h3>
+                            <p>Plataforma web integral informativa y administrativa para el Colegio de Ingenieros Mecánicos de El Oro. Sistema de gestión de usuarios, eventos y contenidos.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">PHP</span>
+                                <span class="tech-tag">MySQL</span>
+                                <span class="tech-tag">HTML/CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
+                            <div class="project-footer">
+                                <span class="project-year">2024</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="assets/img/proyecto-escuela.jpg" alt="Sistema Escuela" onerror="this.src='assets/img/placeholder-project.jpg'">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link" title="Ver más">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Sistema de Gestión Escuela "Las Águilas del Saber"</h3>
+                            <p>Sistema administrativo completo y gestión documental. Incluye módulos de usuarios, documentos, reportes y control de acceso (90% completado).</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">PHP</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">Bootstrap</span>
+                                <span class="tech-tag">API REST</span>
+                            </div>
+                            <div class="project-footer">
+                                <span class="project-year">2024</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="assets/img/proyecto-servidor.jpg" alt="Servidor Personal" onerror="this.src='assets/img/placeholder-project.jpg'">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link" title="Ver más">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Servidor Ubuntu con Nextcloud</h3>
+                            <p>Configuración y administración de servidor local con Ubuntu Server, Nextcloud para almacenamiento, administrado remotamente con Cockpit.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Ubuntu Server</span>
+                                <span class="tech-tag">Nextcloud</span>
+                                <span class="tech-tag">MySQL</span>
+                                <span class="tech-tag">Cockpit</span>
+                            </div>
+                            <div class="project-footer">
+                                <span class="project-year">2024</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="assets/img/proyecto-juegos.jpg" alt="Juegos Web" onerror="this.src='assets/img/placeholder-project.jpg'">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://github.com/Groe21" target="_blank" class="project-link" title="Ver en GitHub">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Colección de Juegos Web</h3>
+                            <p>Desarrollo de juegos interactivos utilizando HTML, CSS y JavaScript, desplegados en servidor y repositorio. Proyecto de casa abierta institucional.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML5</span>
+                                <span class="tech-tag">CSS3</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Canvas API</span>
+                            </div>
+                            <div class="project-footer">
+                                <span class="project-year">2023-2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Timeline -->
+        <section id="experience" class="experience-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Experiencia & Educación</h2>
+                    <p class="section-subtitle">Mi trayectoria profesional y académica</p>
+                </div>
+                <div class="timeline">
+                    <!-- Experiencia -->
+                    <div class="timeline-item">
+                        <div class="timeline-icon experience-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">2024</span>
+                            <h3>Desarrollador Web</h3>
+                            <h4>Colegio de Ingenieros Mecánicos de El Oro (CIMO)</h4>
+                            <p>Colaboré en la creación de una plataforma web integral, tanto informativa como administrativa, que facilita la gestión de las actividades y procesos del colegio. Utilicé PHP y MySQL para desarrollar un sistema dinámico y eficiente.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon experience-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">2024</span>
+                            <h3>Desarrollador Web</h3>
+                            <h4>Escuela "Las Águilas del Saber"</h4>
+                            <p>Liderando el desarrollo de una página administrativa y un sistema de gestión documental utilizando PHP y PostgreSQL. Responsable de la implementación de bases de datos, funcionalidades clave y la integración del sistema (90% completado).</p>
+                        </div>
+                    </div>
+
+                    <!-- Educación -->
+                    <div class="timeline-item">
+                        <div class="timeline-icon education-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">2023 - Actualidad</span>
+                            <h3>Tecnología Superior en Desarrollo de Software</h3>
+                            <h4>Instituto Tecnológico Superior Universitario Ismael Pérez Pazmiño</h4>
+                            <p>Cursando cuarto ciclo. Participación destacada en casa abierta con proyectos de desarrollo web, APIs, Python y prácticas pre-profesionales.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon education-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">2023</span>
+                            <h3>Bachiller Técnico - TICs Informática</h3>
+                            <h4>Colegio de Bachillerato Jorge Icaza</h4>
+                            <p>Cursos de programación, desarrollo web y electrónica. Primer lugar en exposiciones técnicas de TICs e informática.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Habilidades Técnicas</h2>
+                    <p class="section-subtitle">Tecnologías y herramientas que domino</p>
+                </div>
+                <div class="skills-content">
+                    <div class="skills-categories">
+                        <div class="skill-category">
+                            <h3><i class="fas fa-code"></i> Backend</h3>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">PHP</span>
+                                    <span class="skill-level">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Laravel</span>
+                                    <span class="skill-level">70%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">API REST</span>
+                                    <span class="skill-level">80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3><i class="fas fa-database"></i> Bases de Datos</h3>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">MySQL</span>
+                                    <span class="skill-level">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">PostgreSQL</span>
+                                    <span class="skill-level">80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3><i class="fas fa-paint-brush"></i> Frontend</h3>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">HTML5 & CSS3</span>
+                                    <span class="skill-level">90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">JavaScript</span>
+                                    <span class="skill-level">75%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Bootstrap</span>
+                                    <span class="skill-level">80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3><i class="fas fa-server"></i> DevOps & Herramientas</h3>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Ubuntu Server</span>
+                                    <span class="skill-level">75%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Git & GitHub</span>
+                                    <span class="skill-level">80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tech-icons-grid">
+                        <div class="tech-icon" title="HTML5">
+                            <i class="fab fa-html5"></i>
+                        </div>
+                        <div class="tech-icon" title="CSS3">
+                            <i class="fab fa-css3-alt"></i>
+                        </div>
+                        <div class="tech-icon" title="JavaScript">
+                            <i class="fab fa-js"></i>
+                        </div>
+                        <div class="tech-icon" title="PHP">
+                            <i class="fab fa-php"></i>
+                        </div>
+                        <div class="tech-icon" title="Laravel">
+                            <i class="fab fa-laravel"></i>
+                        </div>
+                        <div class="tech-icon" title="Python">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <div class="tech-icon" title="MySQL">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="tech-icon" title="Linux">
+                            <i class="fab fa-linux"></i>
+                        </div>
+                        <div class="tech-icon" title="GitHub">
                             <i class="fab fa-github"></i>
-                        </a>
-                    </div>
-                </div>
-            </section>
-            
-            <hr class="m-0" />
-            <!-- Experience-->
-            <section class="resume-section" id="experience">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Experiencia</h2>
-                    <!-- Proyecto CIMO -->
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Desarrollador Web</h3>
-                            <div class="subheading mb-3">Colegio de Ingenieros Mecánicos de El Oro (CIMO)</div>
-                            <p>Colaboré en la creación de una plataforma web integral, tanto informativa como administrativa, que facilita la gestión de las actividades y procesos del colegio. Utilicé PHP y MySQL para desarrollar un sistema dinámico y eficiente, con funciones que incluyen la gestión de usuarios, eventos y contenidos.</p>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">2024</span></div>
-                    </div>
-            
-                    <!-- Proyecto Escuela "Las Águilas del Saber" -->
-                    <div class="d-flex flex-column flex-md-row justify-content-between">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Desarrollador Web</h3>
-                            <div class="subheading mb-3">Escuela "Las Águilas del Saber"</div>
-                            <p>Actualmente, estoy liderando el desarrollo de una página administrativa y un sistema de gestión documental utilizando PHP y PostgreSQL. Mi responsabilidad incluye la implementación de bases de datos, la creación de funcionalidades clave y la integración del sistema, logrando un avance del 90% en la implementación.</p>
+                        <div class="tech-icon" title="Bootstrap">
+                            <i class="fab fa-bootstrap"></i>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">2024</span></div>
-                    </div>
-                </div>
-            </section>            
-            
-            <hr class="m-0" />
-            <!-- Education-->
-            <section class="resume-section" id="education">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Educación</h2>
-                    <!-- Educación Superior -->
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Instituto Tecnológico Superior Universitario Ismael Pérez Pazmiño</h3>
-                            <div class="subheading mb-3">Tecnología Superior en Desarrollo de Software</div>
-                            <p>
-                                - Actualmente cursando el cuarto ciclo (Octubre 2024).<br>
-                                - Inicio: Julio 2023.<br>
-                                - Participación destacada en la casa abierta con exposiciones y proyectos prácticos:
-                                <ul>
-                                    <li>Desarrollo de juegos con HTML, CSS y JavaScript, desplegados en un servidor y repositorio.</li>
-                                    <li>Presentación de librerías de programación en Python.</li>
-                                    <li>Prácticas pre-profesionales en el desarrollo de una página administrativa para el CIMO.</li>
-                                    <li>Prácticas pre-profesionales en el desarrollo de un sistema de gestión documental para la Escuela "Las Águilas del Saber".</li>
-                                </ul>
-                            </p>
+                        <div class="tech-icon" title="Git">
+                            <i class="fab fa-git-alt"></i>
                         </div>
-                        <div class="flex-shrink-0">
-                            <span class="text-primary">Julio 2023 - Actualidad</span>
+                        <div class="tech-icon" title="Docker">
+                            <i class="fab fa-docker"></i>
                         </div>
                     </div>
-                    
-                    <!-- Educación Secundaria -->
-                    <div class="d-flex flex-column flex-md-row justify-content-between">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Colegio de Bachillerato Jorge Icaza</h3>
-                            <div class="subheading mb-3">Bachiller Técnico - Área Técnica en TICs Informática</div>
-                            <p>
-                                - Finalizado en febrero de 2023.<br>
-                                - Realicé cursos de programación, desarrollo web y electrónica.<br>
-                                - Obtuve el primer lugar en exposiciones técnicas relacionadas con TICs e informática.
-                            </p>
-                        </div>
-                        <div class="flex-shrink-0">
-                            <span class="text-primary">Febrero 2023</span>
+
+                    <div class="certifications">
+                        <h3><i class="fas fa-certificate"></i> Certificaciones</h3>
+                        <div class="cert-grid">
+                            <div class="cert-item">
+                                <i class="fas fa-laptop-code"></i>
+                                <h4>Técnico Auxiliar en Computación</h4>
+                                <p>PUCE - 300 horas (2023)</p>
+                            </div>
+                            <div class="cert-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <h4>Manejo de Firewalls con Iptables</h4>
+                                <p>ITSUP - 40 horas (2024)</p>
+                            </div>
+                            <div class="cert-item">
+                                <i class="fas fa-network-wired"></i>
+                                <h4>Redes con Linux</h4>
+                                <p>ITSUP - 40 horas (2024)</p>
+                            </div>
+                            <div class="cert-item">
+                                <i class="fas fa-language"></i>
+                                <h4>Inglés A2</h4>
+                                <p>ITSUP - 100 horas (2024)</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
-            
-            
-            <hr class="m-0" />
-            <!-- Skills-->
-            <section class="resume-section" id="skills">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Habilidades</h2>
-                    <div class="subheading mb-3">Lenguajes de programación y herramientas</div>
-                    <ul class="list-inline dev-icons">
-                        <li class="list-inline-item"><i class="fab fa-html5"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-css3-alt"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-js-square"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-php"></i></li>
-                        <li class="list-inline-item"><i class="fas fa-database"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-linux"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-github"></i></li> <!-- Logo de GitHub -->
-                    </ul>
-                    
-                    <div class="subheading mb-3">Habilidades adicionales</div>
-                    <ul class="fa-ul mb-0">
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Desarrollo backend especializado en PHP
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Manejo avanzado de bases de datos: MySQL y PostgreSQL
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Creación y manejo de APIs REST
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Diseño de interfaces de usuario básicas
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Administración y configuración de servidores Linux (Ubuntu Server)
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Uso de herramientas de control de versiones como Git y GitHub
-                        </li>
-                    </ul>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Contacto</h2>
+                    <p class="section-subtitle">¿Tienes un proyecto en mente? ¡Hablemos!</p>
                 </div>
-            </section>
-            
-            
-            <hr class="m-0" />
-            <!-- Interests-->
-            <section class="resume-section" id="interests">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Intereses</h2>
-                    <p>Me apasiona la programación y la tecnología, y siempre estoy buscando nuevas formas de mejorar mis habilidades y explorar nuevas herramientas. Actualmente, estoy profundizando en el framework Laravel y en bases de datos NoSQL, lo que me permite mantenerme al día con las tecnologías más recientes y expandir mi conocimiento en desarrollo web.</p>
-                    <p>Fuera del ámbito profesional, disfruto de actividades al aire libre como el motocross, lo que me permite desconectar y mantenerme activo. También me gusta viajar, conocer nuevas culturas y explorar diferentes ciudades, lo cual amplía mis perspectivas y enriquece mi creatividad.</p>
-                    <p>Además, tengo una gran capacidad para adaptarme rápidamente a nuevos desafíos y aprender de nuevas experiencias, lo que considero esencial tanto para mi crecimiento personal como profesional.</p>
-                    <p class="mb-0">Para relajarme, suelo visitar centros comerciales y explorar nuevos lugares, lo que me ayuda a recargar energías y mantenerme motivado para abordar proyectos complejos con energía renovada.</p>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Información de Contacto</h3>
+                        <p>Estoy disponible para proyectos freelance, colaboraciones o simplemente para una conversación sobre tecnología.</p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Email</h4>
+                                    <a href="mailto:guerreroemilio001@gmail.com">guerreroemilio001@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Teléfono</h4>
+                                    <a href="tel:+593961115417">+593 96 111 5417</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Ubicación</h4>
+                                    <p>Pasaje, El Oro, Ecuador</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-social">
+                            <h4>Redes Sociales</h4>
+                            <div class="social-links">
+                                <a href="https://www.linkedin.com/in/emilio-guerrero-80b964280" target="_blank" class="social-link">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://github.com/Groe21" target="_blank" class="social-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="download-cv">
+                            <a href="assets/cv/CV_Emilio_Guerrero.pdf" class="btn btn-download" download>
+                                <i class="fas fa-file-download"></i> Descargar CV
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-wrapper">
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Nombre Completo</label>
+                                <input type="text" id="name" name="name" required placeholder="Tu nombre">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Correo Electrónico</label>
+                                <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Asunto</label>
+                                <input type="text" id="subject" name="subject" required placeholder="Asunto del mensaje">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Mensaje</label>
+                                <textarea id="message" name="message" rows="5" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-submit">
+                                <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                            </button>
+                            <div id="formMessage" class="form-message"></div>
+                        </form>
+                    </div>
                 </div>
-            </section>
-            
-            <hr class="m-0" />
-            <!-- Awards-->
-            <section class="resume-section" id="awards">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Certificaciones</h2>
-                    <ul class="fa-ul mb-0">
-                        <li>
-                            <span class="fa-li"><i class="fas fa-laptop-code text-warning"></i></span>
-                            Técnico Auxiliar en Computación - 300 horas. - Politécnica Universidad Católica del Ecuador (PUCE) - <strong>2023</strong>.
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-shield-alt text-warning"></i></span>
-                            Manejo de Firewalls con Iptables - 40 horas. - Instituto Tecnológico Superior Universitario Ismael Pérez Pazmiño - <strong>2024</strong>.
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-network-wired text-warning"></i></span>
-                            Redes con Linux - 40 horas. - Instituto Tecnológico Superior Universitario Ismael Pérez Pazmiño - <strong>2024</strong>.
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-comment-dots text-warning"></i></span>
-                            Curso de Inglés A2 - 100 horas. - Instituto Tecnológico Superior Universitario Ismael Pérez Pazmiño - <strong>2024</strong>.
-                        </li>
-                    </ul>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>Emilio Guerrero</h3>
+                        <p>Desarrollador Backend especializado en crear soluciones web robustas y eficientes.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Enlaces Rápidos</h4>
+                        <ul class="footer-links">
+                            <li><a href="#home">Inicio</a></li>
+                            <li><a href="#about">Sobre mí</a></li>
+                            <li><a href="#services">Servicios</a></li>
+                            <li><a href="#projects">Proyectos</a></li>
+                            <li><a href="#contact">Contacto</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Sígueme</h4>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/in/emilio-guerrero-80b964280" target="_blank">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/Groe21" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </section>        
-        </div>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Emilio Guerrero. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Scroll to Top Button -->
+        <button id="scrollTop" class="scroll-top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+
+        <!-- Core theme JS -->
         <script src="js/scripts.js"></script>
     </body>
 </html>
