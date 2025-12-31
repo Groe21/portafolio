@@ -462,12 +462,18 @@ section {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    align-items: stretch;
 }
 
 .stat-card {
     background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    width: 100%;
     padding: 2rem;
-    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
     text-align: center;
     color: white;
     box-shadow: var(--shadow-lg);
@@ -480,20 +486,20 @@ section {
 }
 
 .stat-icon {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
-    opacity: 0.9;
+    opacity: 0.95;
 }
 
 .stat-number {
-    font-size: 3rem;
+    font-size: 2.2rem;
     font-weight: 800;
     margin-bottom: 0.5rem;
 }
 
 .stat-label {
     font-size: 1rem;
-    opacity: 0.95;
+    opacity: 0.9;
 }
 
 /* ===================================
