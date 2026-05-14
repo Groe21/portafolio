@@ -1,748 +1,1254 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Portafolio profesional de Oscar Emilio Guerrero Romero - Desarrollador Backend especializado en PHP, Laravel, MySQL y PostgreSQL" />
-        <meta name="author" content="Oscar Emilio Guerrero Romero" />
-        <meta name="keywords" content="Desarrollador Backend, PHP, Laravel, MySQL, PostgreSQL, Desarrollador Web, Ecuador" />
-        <title>Emilio Guerrero | Desarrollador Backend</title>
-        <link rel="icon" type="image/x-icon" href="assets/img/portafolio.png" />
-        <!-- Font Awesome icons -->
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS -->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body>
-        <!-- Navigation -->
-        <nav class="navbar">
-            <div class="nav-container">
-                <a href="#home" class="nav-logo">EG<span>.</span></a>
-                <button class="nav-toggle" id="navToggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="#home" class="nav-link">Inicio</a></li>
-                    <li><a href="#about" class="nav-link">Sobre mí</a></li>
-                    <li><a href="#services" class="nav-link">Servicios</a></li>
-                    <li><a href="#projects" class="nav-link">Proyectos</a></li>
-                    <li><a href="#skills" class="nav-link">Habilidades</a></li>
-                    <li><a href="#contact" class="nav-link">Contacto</a></li>
-                </ul>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portafolio profesional de Oscar Emilio Guerrero Romero - Desarrollador Backend especializado en PHP, Laravel, MySQL y PostgreSQL" />
+  <meta name="author" content="Oscar Emilio Guerrero Romero" />
+  <meta name="keywords" content="Desarrollador Backend, PHP, Laravel, MySQL, PostgreSQL, Ecuador" />
+  <!-- Open Graph para preview bonito al compartir -->
+  <meta property="og:title" content="Emilio Guerrero | Desarrollador Backend" />
+  <meta property="og:description" content="Desarrollador Backend especializado en PHP, Laravel, MySQL/PostgreSQL y Ubuntu Server." />
+  <meta property="og:type" content="website" />
+  <title>Emilio Guerrero | Desarrollador Backend</title>
+  <link rel="icon" type="image/x-icon" href="assets/img/portafolio.png" />
+  <!-- Font Awesome -->
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <!-- Google Fonts: Syne (headings) + DM Sans (body) -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Variables ─────────────────────────────────────────────────── */
+    :root {
+      --bg:        #07070e;
+      --bg-card:   rgba(255,255,255,0.04);
+      --bg-card2:  rgba(255,255,255,0.07);
+      --border:    rgba(255,255,255,0.08);
+      --accent:    #00e5c8;
+      --accent2:   #7b5cff;
+      --text:      #ddddf0;
+      --muted:     #8888aa;
+      --white:     #ffffff;
+      --heading-font: 'Syne', sans-serif;
+      --body-font:    'DM Sans', sans-serif;
+      --radius:    14px;
+      --radius-sm: 8px;
+      --transition: 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    /* ── Reset / Base ───────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--body-font);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ── Background noise + glow ─────────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 10% 20%, rgba(0,229,200,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 90% 80%, rgba(123,92,255,0.07) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Section base ───────────────────────────────────────────────── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+    section { padding: 100px 0; position: relative; z-index: 1; }
+
+    .section-header { text-align: center; margin-bottom: 60px; }
+    .section-title {
+      font-family: var(--heading-font);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+    .section-title span { color: var(--accent); }
+    .section-subtitle {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+    }
+    .section-line {
+      display: block;
+      width: 50px;
+      height: 3px;
+      border-radius: 999px;
+      background: var(--accent);
+      margin: 14px auto 0;
+    }
+
+    /* ── Scroll-reveal ──────────────────────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── Navbar ─────────────────────────────────────────────────────── */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 1.5rem;
+      transition: var(--transition);
+    }
+    .navbar.scrolled {
+      background: rgba(7,7,14,0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-container {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 70px;
+    }
+    .nav-logo {
+      font-family: var(--heading-font);
+      font-size: 1.6rem; font-weight: 800;
+      color: var(--white);
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-menu { display: flex; gap: 2rem; }
+    .nav-link {
+      font-size: 0.9rem; font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+      transition: color var(--transition);
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 2px;
+      background: var(--accent);
+      border-radius: 99px;
+      transition: width var(--transition);
+    }
+    .nav-link:hover, .nav-link.active { color: var(--white); }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .nav-toggle span {
+      display: block; width: 24px; height: 2px;
+      background: var(--text);
+      border-radius: 99px;
+      transition: var(--transition);
+    }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── Hero ───────────────────────────────────────────────────────── */
+    .hero-section {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 120px 0 80px;
+    }
+    .hero-container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; width: 100%; }
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(0,229,200,0.08);
+      border: 1px solid rgba(0,229,200,0.2);
+      color: var(--accent);
+      font-size: 0.85rem; font-weight: 500;
+      padding: 6px 14px; border-radius: 99px;
+      margin-bottom: 24px;
+    }
+    .hero-tag::before {
+      content: '';
+      width: 7px; height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: blink 1.5s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+    .hero-name {
+      font-family: var(--heading-font);
+      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+    .hero-name .accent { color: var(--accent); }
+    .hero-title {
+      font-size: 1.1rem;
+      color: var(--muted);
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+    .hero-title .typed-cursor {
+      color: var(--accent);
+      animation: blink 0.8s step-end infinite;
+    }
+    .hero-description {
+      color: #9999bb;
+      font-size: 1rem;
+      max-width: 520px;
+      margin-bottom: 36px;
+    }
+    .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 36px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 26px; border-radius: var(--radius-sm);
+      font-family: var(--body-font); font-size: 0.9rem; font-weight: 600;
+      cursor: pointer; transition: var(--transition); border: none;
+    }
+    .btn-primary {
+      background: var(--accent); color: #07070e;
+    }
+    .btn-primary:hover { background: #00cdb5; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,229,200,0.3); }
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+    .hero-social { display: flex; gap: 16px; }
+    .social-link {
+      width: 48px; height: 48px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 1.2rem;
+      transition: var(--transition);
+    }
+    .social-link.linkedin {
+      width: 52px; height: 52px;
+      font-size: 1.3rem;
+      border-color: rgba(10,102,194,0.35);
+      background: rgba(10,102,194,0.08);
+      color: #0a66c2;
+    }
+    .social-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
+    .social-link.linkedin:hover {
+      border-color: #0a66c2;
+      color: #0a66c2;
+      background: rgba(10,102,194,0.14);
+    }
+
+    /* Hero image */
+    .hero-image { position: relative; }
+    .image-wrapper {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+    .image-wrapper img {
+      width: 100%; aspect-ratio: 4/5;
+      object-fit: cover;
+    }
+    .image-wrapper::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(0,229,200,0.15), rgba(123,92,255,0.1));
+      z-index: 1; border-radius: 24px;
+    }
+    .image-glow {
+      position: absolute;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(0,229,200,0.2) 0%, transparent 70%);
+      border-radius: 50%;
+      top: -40px; right: -40px;
+      pointer-events: none;
+    }
+    .image-border {
+      position: absolute; inset: -2px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, rgba(0,229,200,0.4), rgba(123,92,255,0.2), transparent);
+      z-index: -1;
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute; bottom: 32px; left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s ease-in-out infinite;
+    }
+    .scroll-indicator a { color: var(--muted); font-size: 1.1rem; }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+
+    /* ── About ──────────────────────────────────────────────────────── */
+    .about-section { background: none; }
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .about-text p { color: #9999bb; margin-bottom: 14px; }
+    .about-text p:first-child { font-size: 1.1rem; font-weight: 600; color: var(--white); }
+    .about-info { margin-top: 28px; display: flex; flex-direction: column; gap: 12px; }
+    .info-item {
+      display: flex; align-items: center; gap: 12px;
+      color: var(--muted); font-size: 0.95rem;
+    }
+    .info-item i { color: var(--accent); width: 16px; }
+
+    .about-stats {
+      display: grid; grid-template-columns: 1fr; gap: 16px;
+    }
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      display: flex; align-items: center; gap: 20px;
+      transition: var(--transition);
+    }
+    .stat-card:hover { border-color: rgba(0,229,200,0.25); transform: translateX(6px); }
+    .stat-icon {
+      width: 48px; height: 48px;
+      background: rgba(0,229,200,0.1);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent); font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .stat-number {
+      font-family: var(--heading-font);
+      font-size: 2rem; font-weight: 800; color: var(--white);
+    }
+    .stat-label { color: var(--muted); font-size: 0.85rem; margin-top: 2px; }
+
+    /* ── Services ───────────────────────────────────────────────────── */
+    .services-section { background: rgba(255,255,255,0.015); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      transition: var(--transition);
+      position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform var(--transition);
+    }
+    .service-card:hover { border-color: rgba(0,229,200,0.2); transform: translateY(-6px); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      width: 52px; height: 52px;
+      background: rgba(0,229,200,0.1);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent); font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+    .service-card h3 {
+      font-family: var(--heading-font);
+      font-size: 1.15rem; font-weight: 700;
+      color: var(--white); margin-bottom: 10px;
+    }
+    .service-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.65; }
+
+    /* ── Projects ───────────────────────────────────────────────────── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .project-card:hover { border-color: rgba(0,229,200,0.25); transform: translateY(-6px); }
+    .project-image {
+      position: relative; overflow: hidden;
+      height: 200px;
+    }
+    .project-image img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .project-card:hover .project-image img { transform: scale(1.06); }
+    .project-overlay {
+      position: absolute; inset: 0;
+      background: rgba(7,7,14,0.6);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity var(--transition);
+    }
+    .project-card:hover .project-overlay { opacity: 1; }
+    .project-links { display: flex; gap: 12px; }
+    .project-link {
+      width: 44px; height: 44px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #07070e; font-size: 1rem;
+      transition: var(--transition);
+    }
+    .project-link:hover { transform: scale(1.1); }
+    .project-content { padding: 24px; }
+    .project-content h3 {
+      font-family: var(--heading-font);
+      font-size: 1.05rem; font-weight: 700;
+      color: var(--white); margin-bottom: 8px;
+    }
+    .project-content p { color: var(--muted); font-size: 0.88rem; margin-bottom: 16px; }
+    .project-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+    .tech-tag {
+      background: rgba(0,229,200,0.1);
+      color: var(--accent);
+      border: 1px solid rgba(0,229,200,0.2);
+      font-size: 0.75rem; font-weight: 500;
+      padding: 3px 10px; border-radius: 99px;
+    }
+    .project-footer { display: flex; align-items: center; justify-content: space-between; }
+    .project-year {
+      font-size: 0.8rem; color: var(--muted);
+      background: var(--bg-card2);
+      padding: 3px 10px; border-radius: 99px;
+      border: 1px solid var(--border);
+    }
+
+    /* Gallery modal */
+    .gallery-modal {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,0.9);
+      align-items: center; justify-content: center;
+      padding: 2rem;
+    }
+    .gallery-modal.open { display: flex; }
+    .gallery-inner {
+      background: #111118;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      max-width: 960px; width: 100%;
+      max-height: 90vh; overflow-y: auto;
+      padding: 2rem; position: relative;
+    }
+    .gallery-close {
+      position: absolute; top: 1rem; right: 1rem;
+      background: none; border: none;
+      color: var(--muted); font-size: 1.8rem; cursor: pointer;
+      transition: color var(--transition);
+    }
+    .gallery-close:hover { color: var(--accent); }
+    .gallery-title {
+      font-family: var(--heading-font);
+      font-size: 1.4rem; font-weight: 700; color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .gallery-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+    .gallery-item img { border-radius: var(--radius-sm); width: 100%; }
+    .gallery-item p { font-size: 0.82rem; color: var(--muted); margin-top: 8px; text-align: center; }
+
+    /* ── Timeline ───────────────────────────────────────────────────── */
+    .experience-section { background: rgba(255,255,255,0.015); }
+    .timeline { position: relative; max-width: 800px; margin: 0 auto; }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 20px; top: 0; bottom: 0;
+      width: 1px; background: var(--border);
+    }
+    .timeline-item {
+      display: flex; gap: 28px;
+      margin-bottom: 40px;
+      padding-left: 8px;
+    }
+    .timeline-icon {
+      width: 42px; height: 42px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+      position: relative; z-index: 1;
+    }
+    .experience-icon { background: rgba(0,229,200,0.1); color: var(--accent); border: 1px solid rgba(0,229,200,0.25); }
+    .education-icon { background: rgba(123,92,255,0.1); color: var(--accent2); border: 1px solid rgba(123,92,255,0.25); }
+    .timeline-content {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px; flex: 1;
+      transition: var(--transition);
+    }
+    .timeline-content:hover { border-color: rgba(0,229,200,0.2); }
+    .timeline-date {
+      font-size: 0.78rem; font-weight: 600;
+      color: var(--accent); letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: rgba(0,229,200,0.08);
+      border: 1px solid rgba(0,229,200,0.15);
+      padding: 3px 10px; border-radius: 99px;
+      display: inline-block; margin-bottom: 10px;
+    }
+    .timeline-content h3 {
+      font-family: var(--heading-font);
+      font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 4px;
+    }
+    .timeline-content h4 { font-size: 0.88rem; color: var(--accent2); margin-bottom: 10px; font-weight: 500; }
+    .timeline-content p { color: var(--muted); font-size: 0.9rem; }
+
+    /* ── Skills ─────────────────────────────────────────────────────── */
+    .skills-content { display: grid; gap: 48px; }
+    .skills-categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .skill-category {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px;
+    }
+    .skill-category h3 {
+      font-family: var(--heading-font);
+      font-size: 1rem; font-weight: 700;
+      color: var(--white); margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .skill-category h3 i { color: var(--accent); }
+    .skill-item { margin-bottom: 16px; }
+    .skill-header {
+      display: flex; justify-content: space-between;
+      margin-bottom: 7px;
+    }
+    .skill-name { font-size: 0.88rem; color: var(--text); }
+    .skill-level { font-size: 0.78rem; color: var(--accent); font-weight: 600; }
+    .skill-bar {
+      height: 5px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 99px; overflow: hidden;
+    }
+    .skill-progress {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 99px;
+      width: 0%;
+      transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    /* Tech icons */
+    .tech-icons-grid {
+      display: flex; flex-wrap: wrap; gap: 12px;
+      justify-content: center;
+    }
+    .tech-icon {
+      width: 56px; height: 56px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; color: var(--muted);
+      transition: var(--transition);
+      cursor: default;
+    }
+    .tech-icon:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-4px); }
+
+    /* Certifications */
+    .certifications { }
+    .certifications h3 {
+      font-family: var(--heading-font);
+      font-size: 1.2rem; font-weight: 700;
+      color: var(--white); margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .certifications h3 i { color: var(--accent); }
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .cert-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 22px;
+      transition: var(--transition);
+    }
+    .cert-item:hover { border-color: rgba(0,229,200,0.25); transform: translateY(-3px); }
+    .cert-item i { font-size: 1.5rem; color: var(--accent); margin-bottom: 12px; display: block; }
+    .cert-item h4 { font-size: 0.92rem; font-weight: 600; color: var(--white); margin-bottom: 6px; }
+    .cert-item p { font-size: 0.8rem; color: var(--muted); }
+
+    /* ── Contact ─────────────────────────────────────────────────────── */
+    .contact-section { background: rgba(255,255,255,0.015); }
+    .contact-content {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 50px;
+    }
+    .contact-info h3 {
+      font-family: var(--heading-font);
+      font-size: 1.4rem; font-weight: 700;
+      color: var(--white); margin-bottom: 12px;
+    }
+    .contact-info > p { color: var(--muted); font-size: 0.92rem; margin-bottom: 28px; }
+    .contact-details { display: flex; flex-direction: column; gap: 16px; margin-bottom: 28px; }
+    .contact-item { display: flex; align-items: center; gap: 16px; }
+    .contact-icon {
+      width: 44px; height: 44px;
+      background: rgba(0,229,200,0.1);
+      border: 1px solid rgba(0,229,200,0.2);
+      border-radius: 11px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent); font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .contact-text h4 { font-size: 0.78rem; font-weight: 600; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 2px; }
+    .contact-text a, .contact-text p { color: var(--text); font-size: 0.92rem; }
+    .contact-text a:hover { color: var(--accent); }
+    .contact-social h4 {
+      font-size: 0.78rem; font-weight: 600; color: var(--muted);
+      letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px;
+    }
+    .social-links { display: flex; gap: 10px; margin-bottom: 28px; }
+    .btn-download {
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 22px; border-radius: var(--radius-sm);
+      font-size: 0.9rem; font-weight: 600; transition: var(--transition);
+    }
+    .btn-download:hover { background: var(--accent); color: #07070e; }
+
+    /* Form */
+    .contact-form { display: flex; flex-direction: column; gap: 18px; }
+    .form-group { display: flex; flex-direction: column; gap: 7px; }
+    .form-group label { font-size: 0.82rem; font-weight: 600; color: var(--muted); letter-spacing: 0.04em; }
+    .form-group input, .form-group textarea {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 13px 16px;
+      color: var(--text);
+      font-family: var(--body-font); font-size: 0.92rem;
+      transition: border-color var(--transition);
+      resize: none;
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: var(--muted); opacity: 0.6; }
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: rgba(0,229,200,0.45);
+    }
+    .btn-submit {
+      background: var(--accent); color: #07070e;
+      border: none; cursor: pointer;
+      font-size: 0.95rem; font-weight: 700;
+      padding: 14px 28px; border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: var(--transition); width: 100%;
+    }
+    .btn-submit:hover { background: #00cdb5; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,229,200,0.3); }
+    .form-message {
+      font-size: 0.88rem; text-align: center; padding: 10px;
+      border-radius: var(--radius-sm); display: none;
+    }
+    .form-message.success { background: rgba(0,229,200,0.1); color: var(--accent); border: 1px solid rgba(0,229,200,0.2); display: block; }
+    .form-message.error { background: rgba(255,80,80,0.1); color: #ff8080; border: 1px solid rgba(255,80,80,0.2); display: block; }
+
+    /* ── Footer ─────────────────────────────────────────────────────── */
+    .footer {
+      background: rgba(0,0,0,0.3);
+      border-top: 1px solid var(--border);
+      padding: 60px 0 28px;
+    }
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 40px; margin-bottom: 40px;
+    }
+    .footer-section h3 {
+      font-family: var(--heading-font);
+      font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 14px;
+    }
+    .footer-section h4 {
+      font-size: 0.82rem; font-weight: 600; color: var(--muted);
+      letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px;
+    }
+    .footer-section p { color: var(--muted); font-size: 0.88rem; line-height: 1.65; }
+    .footer-links { display: flex; flex-direction: column; gap: 8px; }
+    .footer-links a { color: var(--muted); font-size: 0.88rem; transition: color var(--transition); }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-social { display: flex; gap: 10px; }
+    .footer-social a {
+      width: 38px; height: 38px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--muted); font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    .footer-social a:hover { border-color: var(--accent); color: var(--accent); }
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 20px; text-align: center;
+    }
+    .footer-bottom p { color: var(--muted); font-size: 0.82rem; }
+    .footer-bottom span { color: var(--accent); }
+
+    /* ── Scroll to top ───────────────────────────────────────────────── */
+    .scroll-top {
+      position: fixed; bottom: 28px; right: 28px;
+      width: 44px; height: 44px;
+      background: var(--accent); color: #07070e;
+      border: none; border-radius: 11px; cursor: pointer;
+      font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; visibility: hidden;
+      transition: var(--transition);
+      z-index: 100;
+    }
+    .scroll-top.visible { opacity: 1; visibility: visible; }
+    .scroll-top:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,229,200,0.4); }
+
+    /* ── Responsive ─────────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero-content { grid-template-columns: 1fr; text-align: center; }
+      .hero-image { order: -1; max-width: 320px; margin: 0 auto; }
+      .hero-buttons { justify-content: center; }
+      .hero-social { justify-content: center; }
+      .about-content { grid-template-columns: 1fr; }
+      .contact-content { grid-template-columns: 1fr; }
+      .footer-content { grid-template-columns: 1fr; gap: 28px; }
+    }
+    @media (max-width: 640px) {
+      .nav-menu {
+        display: none; flex-direction: column;
+        position: fixed; top: 70px; left: 0; right: 0;
+        background: rgba(7,7,14,0.96);
+        backdrop-filter: blur(20px);
+        padding: 2rem 1.5rem;
+        gap: 1.2rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-menu.open { display: flex; }
+      .nav-toggle { display: flex; }
+      section { padding: 72px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">EG<span>.</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home"       class="nav-link">Inicio</a></li>
+        <li><a href="#about"      class="nav-link">Sobre mí</a></li>
+        <li><a href="#services"   class="nav-link">Servicios</a></li>
+        <li><a href="#projects"   class="nav-link">Proyectos</a></li>
+        <li><a href="#skills"     class="nav-link">Habilidades</a></li>
+        <li><a href="#contact"    class="nav-link">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="hero-section">
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="hero-tag">Disponible para proyectos</div>
+          <h1 class="hero-name">Oscar <span class="accent">Emilio</span><br>Guerrero</h1>
+          <h3 class="hero-title" id="heroTitle">&nbsp;</h3>
+          <p class="hero-description">
+            Estudiante de Tecnología Superior en Desarrollo de Software con pasión por crear soluciones
+            robustas y eficientes. Especializado en backend, APIs REST y administración de servidores Linux.
+          </p>
+          <div class="hero-buttons">
+            <a href="assets/cv/CV_Emilio_Guerrero.pdf" class="btn btn-primary" download>
+              <i class="fas fa-download"></i> Descargar CV
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <i class="fas fa-envelope"></i> Contactar
+            </a>
+          </div>
+          <div class="hero-social">
+            <a href="https://www.linkedin.com/in/emilio-guerrero-80b964280" target="_blank" class="social-link linkedin" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/Groe21" target="_blank" class="social-link" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="image-glow"></div>
+          <div class="image-wrapper">
+            <img src="assets/img/perfil.jpg" alt="Emilio Guerrero" />
+          </div>
+          <div class="image-border"></div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <a href="#about"><i class="fas fa-chevron-down"></i></a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Sobre <span>Mí</span></h2>
+        <p class="section-subtitle">Conóceme mejor</p>
+        <span class="section-line"></span>
+      </div>
+      <div class="about-content">
+        <div class="about-text reveal">
+          <p>Emilio Guerrero — Backend Developer</p>
+          <p>Egresado en Tecnología Superior en Desarrollo de Software con sólida experiencia en la creación de soluciones robustas y escalables. Especializado en el ecosistema PHP/Laravel, diseño de APIs RESTful y administración de servidores Linux.</p>
+          <p>Mi enfoque se centra en la calidad del código mediante pruebas automatizadas y la eficiencia en la gestión de bases de datos relacionales.</p>
+          <div class="about-info">
+            <div class="info-item"><i class="fas fa-map-marker-alt"></i><span>Quinindé, Esmeraldas, Ecuador</span></div>
+            <div class="info-item"><i class="fas fa-envelope"></i><span>guerreroemilio001@gmail.com</span></div>
+            <div class="info-item"><i class="fas fa-phone"></i><span>+593 96 111 5417</span></div>
+          </div>
+        </div>
+        <div class="about-stats reveal">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-code"></i></div>
+            <div><h4 class="stat-number">3+</h4><p class="stat-label">Años Programando</p></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-project-diagram"></i></div>
+            <div><h4 class="stat-number">5+</h4><p class="stat-label">Proyectos Completados</p></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-certificate"></i></div>
+            <div><h4 class="stat-number">4</h4><p class="stat-label">Certificaciones</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="services-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Mis <span>Servicios</span></h2>
+        <p class="section-subtitle">¿Qué puedo hacer por ti?</p>
+        <span class="section-line"></span>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal"><div class="service-icon"><i class="fas fa-laptop-code"></i></div><h3>Desarrollo Web</h3><p>Páginas web corporativas, landing pages y sitios institucionales modernos, responsivos y optimizados para SEO.</p></div>
+        <div class="service-card reveal"><div class="service-icon"><i class="fas fa-server"></i></div><h3>Desarrollo Backend</h3><p>Sistemas administrativos robustos, APIs REST y soluciones de gestión documental con PHP, Laravel y MySQL/PostgreSQL.</p></div>
+        <div class="service-card reveal"><div class="service-icon"><i class="fas fa-database"></i></div><h3>Bases de Datos</h3><p>Diseño, implementación y optimización de bases de datos relacionales con MySQL y PostgreSQL.</p></div>
+        <div class="service-card reveal"><div class="service-icon"><i class="fas fa-shopping-cart"></i></div><h3>E-commerce Básico</h3><p>Tiendas online funcionales con integración de sistemas de pago y gestión de productos.</p></div>
+        <div class="service-card reveal"><div class="service-icon"><i class="fas fa-cloud"></i></div><h3>Despliegue en Servidores</h3><p>Configuración y optimización de aplicaciones en servidores Ubuntu, con administración remota y seguridad.</p></div>
+        <div class="service-card reveal"><div class="service-icon"><i class="fas fa-cogs"></i></div><h3>Integración de APIs</h3><p>Desarrollo e integración de APIs REST para conectar sistemas y automatizar procesos empresariales.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="projects-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Proyectos <span>Destacados</span></h2>
+        <p class="section-subtitle">Algunos de mis trabajos recientes</p>
+        <span class="section-line"></span>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card reveal">
+          <div class="project-image">
+            <img src="assets/img/proyecto-espomalia.jpg" alt="ESPOMALIA" onerror="this.src='assets/img/placeholder-project.svg'">
+            <div class="project-overlay"><div class="project-links"><a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a></div></div>
+          </div>
+          <div class="project-content">
+            <h3>ESPOMALIA — Gestión Portuaria</h3>
+            <p>Aplicación web de alto rendimiento para la administración de servicios portuarios y contenido dinámico.</p>
+            <div class="project-tech"><span class="tech-tag">Laravel 9</span><span class="tech-tag">MySQL</span><span class="tech-tag">Bootstrap</span></div>
+            <div class="project-footer"><span class="project-year">2025</span></div>
+          </div>
+        </div>
+        <div class="project-card reveal">
+          <div class="project-image">
+            <img src="assets/img/proyecto-distrijarca.jpg" alt="DISTRI-JARCA" onerror="this.src='assets/img/placeholder-project.svg'">
+            <div class="project-overlay"><div class="project-links"><a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a></div></div>
+          </div>
+          <div class="project-content">
+            <h3>DISTRI-JARCA — Plataforma Corporativa</h3>
+            <p>Sitio web profesional para distribución de productos premium con enfoque en UX.</p>
+            <div class="project-tech"><span class="tech-tag">JS ES6+</span><span class="tech-tag">HTML5</span><span class="tech-tag">CSS3</span></div>
+            <div class="project-footer"><span class="project-year">2025</span></div>
+          </div>
+        </div>
+        <div class="project-card reveal">
+          <div class="project-image" style="height:200px;">
+            <img src="assets/aguilas del saber/image copy.png" alt="Las Águilas del Saber" onerror="this.src='assets/img/placeholder-project.svg'" style="width:100%;height:100%;object-fit:cover;">
+            <div class="project-overlay"><div class="project-links"><a href="#" class="project-link" id="aguilasGalleryBtn"><i class="fas fa-images"></i></a></div></div>
+          </div>
+          <div class="project-content">
+            <h3>Sistema "Las Águilas del Saber"</h3>
+            <p>Software de gestión documental y administrativa para institución educativa.</p>
+            <div class="project-tech"><span class="tech-tag">PHP</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Bootstrap</span></div>
+            <div class="project-footer"><span class="project-year">2025</span></div>
+          </div>
+        </div>
+        <div class="project-card reveal">
+          <div class="project-image">
+            <img src="assets/img/proyecto-cimo.jpg" alt="CIMO" onerror="this.src='assets/img/placeholder-project.svg'">
+            <div class="project-overlay"><div class="project-links"><a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a></div></div>
+          </div>
+          <div class="project-content">
+            <h3>Plataforma Web CIMO</h3>
+            <p>Sistema informativo y administrativo para el Colegio de Ingenieros Mecánicos de El Oro.</p>
+            <div class="project-tech"><span class="tech-tag">PHP</span><span class="tech-tag">MySQL</span><span class="tech-tag">JavaScript</span></div>
+            <div class="project-footer"><span class="project-year">2024</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Modal -->
+  <div id="aguilasGalleryModal" class="gallery-modal">
+    <div class="gallery-inner">
+      <button id="closeAguilasGallery" class="gallery-close">&times;</button>
+      <h2 class="gallery-title">Galería — Las Águilas del Saber</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="assets/aguilas del saber/image.png" alt="Login y Dashboard"><p>Login y Dashboard: Acceso seguro y panel principal con estadísticas clave.</p></div>
+        <div class="gallery-item"><img src="assets/aguilas del saber/image copy.png" alt="Gestión de Estudiantes"><p>Gestión de Estudiantes: Listado, búsqueda, edición y reportes PDF.</p></div>
+        <div class="gallery-item"><img src="assets/aguilas del saber/image copy 2.png" alt="Panel de Cursos"><p>Panel de Cursos: Administración de cursos, periodos y paralelos.</p></div>
+        <div class="gallery-item"><img src="assets/aguilas del saber/image copy 3.png" alt="Panel de Asistencias"><p>Panel de Asistencias: Registro y control de asistencias diarias.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Experience -->
+  <section id="experience" class="experience-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Experiencia & <span>Educación</span></h2>
+        <p class="section-subtitle">Mi trayectoria profesional y académica</p>
+        <span class="section-line"></span>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-icon experience-icon"><i class="fas fa-briefcase"></i></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2024</span>
+            <h3>Desarrollador Web</h3>
+            <h4>Colegio de Ingenieros Mecánicos de El Oro (CIMO)</h4>
+            <p>Plataforma web integral informativa y administrativa. Desarrollé sistema dinámico con PHP y MySQL para la gestión de actividades del colegio.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-icon experience-icon"><i class="fas fa-briefcase"></i></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2024</span>
+            <h3>Desarrollador Web</h3>
+            <h4>Escuela "Las Águilas del Saber"</h4>
+            <p>Liderando el desarrollo de sistema de gestión documental y administrativa con PHP y PostgreSQL. 90% completado.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-icon education-icon"><i class="fas fa-graduation-cap"></i></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2023 — Actualidad</span>
+            <h3>Tecnología Superior en Desarrollo de Software</h3>
+            <h4>Instituto Tecnológico Superior Universitario Ismael Pérez Pazmiño</h4>
+            <p>Cursando cuarto ciclo. Participación en casa abierta con proyectos de desarrollo web, APIs, Python y prácticas pre-profesionales.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-icon education-icon"><i class="fas fa-graduation-cap"></i></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2023</span>
+            <h3>Bachiller Técnico — TICs Informática</h3>
+            <h4>Colegio de Bachillerato Jorge Icaza</h4>
+            <p>Primer lugar en exposiciones técnicas de TICs e informática. Cursos de programación, desarrollo web y electrónica.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="skills-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Habilidades <span>Técnicas</span></h2>
+        <p class="section-subtitle">Tecnologías y herramientas que domino</p>
+        <span class="section-line"></span>
+      </div>
+      <div class="skills-content">
+        <div class="skills-categories">
+          <div class="skill-category reveal">
+            <h3><i class="fas fa-code"></i> Backend & Calidad</h3>
+            <div class="skill-item"><div class="skill-header"><span class="skill-name">Laravel 10/11</span><span class="skill-level">Avanzado</span></div><div class="skill-bar"><div class="skill-progress" data-width="90"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span class="skill-name">PHP 8.x</span><span class="skill-level">Avanzado</span></div><div class="skill-bar"><div class="skill-progress" data-width="90"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span class="skill-name">PHPUnit / Testing</span><span class="skill-level">Avanzado</span></div><div class="skill-bar"><div class="skill-progress" data-width="85"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span class="skill-name">APIs RESTful</span><span class="skill-level">Avanzado</span></div><div class="skill-bar"><div class="skill-progress" data-width="90"></div></div></div>
+          </div>
+          <div class="skill-category reveal">
+            <h3><i class="fas fa-database"></i> Bases de Datos</h3>
+            <div class="skill-item"><div class="skill-header"><span class="skill-name">MySQL</span><span class="skill-level">Experto</span></div><div class="skill-bar"><div class="skill-progress" data-width="95"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span class="skill-name">PostgreSQL</span><span class="skill-level">Avanzado</span></div><div class="skill-bar"><div class="skill-progress" data-width="90"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span class="skill-name">Diseño Relacional</span><span class="skill-level">Avanzado</span></div><div class="skill-bar"><div class="skill-progress" data-width="90"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span class="skill-name">Optimización de Queries</span><span class="skill-level">Avanzado</span></div><div class="skill-bar"><div class="skill-progress" data-width="85"></div></div></div>
+          </div>
+          <div class="skill-category reveal">
+            <h3><i class="fas fa-server"></i> DevOps & Server</h3>
+            <div class="skill-item"><div class="skill-header"><span class="skill-name">Ubuntu Server</span><span class="skill-level">Avanzado</span></div><div class="skill-bar"><div class="skill-progress" data-width="90"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span class="skill-name">Iptables / Firewalls</span><span class="skill-level">Avanzado</span></div><div class="skill-bar"><div class="skill-progress" data-width="85"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span class="skill-name">Cockpit / Admin Remoto</span><span class="skill-level">Avanzado</span></div><div class="skill-bar"><div class="skill-progress" data-width="85"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span class="skill-name">Git & GitHub</span><span class="skill-level">Avanzado</span></div><div class="skill-bar"><div class="skill-progress" data-width="90"></div></div></div>
+          </div>
+          <div class="skill-category reveal">
+            <h3><i class="fas fa-paint-brush"></i> Frontend</h3>
+            <div class="skill-item"><div class="skill-header"><span class="skill-name">JavaScript / ES6</span><span class="skill-level">Avanzado</span></div><div class="skill-bar"><div class="skill-progress" data-width="90"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span class="skill-name">Bootstrap 5</span><span class="skill-level">Avanzado</span></div><div class="skill-bar"><div class="skill-progress" data-width="90"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span class="skill-name">HTML5 / CSS3</span><span class="skill-level">Avanzado</span></div><div class="skill-bar"><div class="skill-progress" data-width="95"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span class="skill-name">Responsive Design</span><span class="skill-level">Avanzado</span></div><div class="skill-bar"><div class="skill-progress" data-width="90"></div></div></div>
+          </div>
+        </div>
+        <div class="tech-icons-grid reveal">
+          <div class="tech-icon" title="HTML5"><i class="fab fa-html5"></i></div>
+          <div class="tech-icon" title="CSS3"><i class="fab fa-css3-alt"></i></div>
+          <div class="tech-icon" title="JavaScript"><i class="fab fa-js"></i></div>
+          <div class="tech-icon" title="PHP"><i class="fab fa-php"></i></div>
+          <div class="tech-icon" title="Laravel"><i class="fab fa-laravel"></i></div>
+          <div class="tech-icon" title="Python"><i class="fab fa-python"></i></div>
+          <div class="tech-icon" title="MySQL"><i class="fas fa-database"></i></div>
+          <div class="tech-icon" title="Linux"><i class="fab fa-linux"></i></div>
+          <div class="tech-icon" title="GitHub"><i class="fab fa-github"></i></div>
+          <div class="tech-icon" title="Bootstrap"><i class="fab fa-bootstrap"></i></div>
+          <div class="tech-icon" title="Git"><i class="fab fa-git-alt"></i></div>
+          <div class="tech-icon" title="Docker"><i class="fab fa-docker"></i></div>
+        </div>
+        <div class="certifications reveal">
+          <h3><i class="fas fa-certificate"></i> Certificaciones</h3>
+          <div class="cert-grid">
+            <div class="cert-item"><i class="fas fa-laptop-code"></i><h4>Técnico Auxiliar en Computación</h4><p>PUCE — 300 horas (2023)</p></div>
+            <div class="cert-item"><i class="fas fa-shield-alt"></i><h4>Manejo de Firewalls con Iptables</h4><p>ITSUP — 40 horas (2024)</p></div>
+            <div class="cert-item"><i class="fas fa-network-wired"></i><h4>Redes con Linux</h4><p>ITSUP — 40 horas (2024)</p></div>
+            <div class="cert-item"><i class="fas fa-language"></i><h4>Inglés A2</h4><p>ITSUP — 100 horas (2024)</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Hablemos <span>🤝</span></h2>
+        <p class="section-subtitle">¿Tienes un proyecto en mente? ¡Hablemos!</p>
+        <span class="section-line"></span>
+      </div>
+      <div class="contact-content">
+        <div class="contact-info reveal">
+          <h3>Información de Contacto</h3>
+          <p>Disponible para proyectos freelance, colaboraciones o simplemente una conversación sobre tecnología.</p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+              <div class="contact-text"><h4>Email</h4><a href="mailto:guerreroemilio001@gmail.com">guerreroemilio001@gmail.com</a></div>
             </div>
-        </nav>
-
-        <!-- Hero Section -->
-        <section id="home" class="hero-section">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <h1 class="hero-greeting">Hola, soy</h1>
-                        <h2 class="hero-name">Oscar Emilio Guerrero</h2>
-                        <h3 class="hero-title">Desarrollador Backend | PHP, Laravel | MySQL/PostgreSQL | Ubuntu Server</h3>
-                        <p class="hero-description">
-                            Estudiante de Tecnología Superior en Desarrollo de Software con pasión por crear soluciones robustas y eficientes. 
-                            Especializado en desarrollo backend, APIs REST y administración de servidores Linux.
-                        </p>
-                        <div class="hero-buttons">
-                            <a href="assets/cv/CV_Emilio_Guerrero.pdf" class="btn btn-primary" download>
-                                <i class="fas fa-download"></i> Descargar CV
-                            </a>
-                            <a href="#contact" class="btn btn-secondary">
-                                <i class="fas fa-envelope"></i> Contactar
-                            </a>
-                        </div>
-                        <div class="hero-social">
-                            <a href="https://www.linkedin.com/in/emilio-guerrero-80b964280" target="_blank" class="social-link">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="https://github.com/Groe21" target="_blank" class="social-link">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="hero-image">
-                        <div class="image-wrapper">
-                            <img src="assets/img/perfil.jpg" alt="Emilio Guerrero" />
-                            <div class="image-overlay"></div>
-                        </div>
-                    </div>
-                </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-phone"></i></div>
+              <div class="contact-text"><h4>Teléfono</h4><a href="tel:+593961115417">+593 96 111 5417</a></div>
             </div>
-            <div class="scroll-indicator">
-                <a href="#about">
-                    <i class="fas fa-chevron-down"></i>
-                </a>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div class="contact-text"><h4>Ubicación</h4><p>Quinindé, Esmeraldas, Ecuador</p></div>
             </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="about-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Sobre Mí</h2>
-                    <p class="section-subtitle">Conóceme mejor</p>
-                </div>
-                <div class="about-content">
-                    <div class="about-text">
-                        <p><strong>Emilio Guerrero</strong> | Tecnólogo en Desarrollo de Software | Backend Developer</p>
-                        <p>Quinindé, Esmeraldas, Ecuador</p>
-                        <p>Egresado en Tecnología Superior en Desarrollo de Software con sólida experiencia en la creación de soluciones robustas y escalables. Especializado en el ecosistema PHP/Laravel, diseño de APIs RESTful y administración de servidores Linux. Mi enfoque se centra en la calidad del código mediante pruebas automatizadas (Testing) y la eficiencia en la gestión de bases de datos relacionales.</p>
-
-                        <div class="about-info">
-                            <div class="info-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Quinidé, Esmeraldas, Ecuador</span>
-                            </div>
-                            <div class="info-item">
-                                <i class="fas fa-envelope"></i>
-                                <span>guerreroemilio001@gmail.com</span>
-                            </div>
-                            <div class="info-item">
-                                <i class="fas fa-phone"></i>
-                                <span>+593 96 111 5417</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="about-right">
-                        <div class="about-stats">
-                            <div class="stat-card">
-                                <div class="stat-icon">
-                                    <i class="fas fa-code"></i>
-                                </div>
-                                <h4 class="stat-number">2+</h4>
-                                <p class="stat-label">Años Programando</p>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-icon">
-                                    <i class="fas fa-project-diagram"></i>
-                                </div>
-                                <h4 class="stat-number">5+</h4>
-                                <p class="stat-label">Proyectos Completados</p>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-icon">
-                                    <i class="fas fa-certificate"></i>
-                                </div>
-                                <h4 class="stat-number">4</h4>
-                                <p class="stat-label">Certificaciones</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          </div>
+          <div class="contact-social">
+            <h4>Redes Sociales</h4>
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/emilio-guerrero-80b964280" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://github.com/Groe21" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
             </div>
-        </section>
+          </div>
+          <a href="assets/cv/CV_Emilio_Guerrero.pdf" class="btn-download" download>
+            <i class="fas fa-file-download"></i> Descargar CV
+          </a>
+        </div>
+        <div class="contact-form-wrapper reveal">
+          <form class="contact-form" id="contactForm">
+            <div class="form-group"><label for="name">Nombre Completo</label><input type="text" id="name" name="name" required placeholder="Tu nombre"></div>
+            <div class="form-group"><label for="email">Correo Electrónico</label><input type="email" id="email" name="email" required placeholder="tu@email.com"></div>
+            <div class="form-group"><label for="subject">Asunto</label><input type="text" id="subject" name="subject" required placeholder="Asunto del mensaje"></div>
+            <div class="form-group"><label for="message">Mensaje</label><textarea id="message" name="message" rows="5" required placeholder="Escribe tu mensaje aquí..."></textarea></div>
+            <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Enviar Mensaje</button>
+            <div id="formMessage" class="form-message"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Services Section -->
-        <section id="services" class="services-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Mis Servicios</h2>
-                    <p class="section-subtitle">¿Qué puedo hacer por ti?</p>
-                </div>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
-                        <h3>Desarrollo Web</h3>
-                        <p>Páginas web corporativas, landing pages y sitios institucionales modernos, responsivos y optimizados para SEO.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-server"></i>
-                        </div>
-                        <h3>Desarrollo Backend</h3>
-                        <p>Sistemas administrativos robustos, APIs REST y soluciones de gestión documental con PHP, Laravel y MySQL/PostgreSQL.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <h3>Bases de Datos</h3>
-                        <p>Diseño, implementación y optimización de bases de datos relacionales con MySQL y PostgreSQL.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                        <h3>E-commerce Básico</h3>
-                        <p>Tiendas online funcionales con integración de sistemas de pago y gestión de productos.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-cloud"></i>
-                        </div>
-                        <h3>Despliegue en Servidores</h3>
-                        <p>Configuración y optimización de aplicaciones en servidores Ubuntu, con administración remota y seguridad.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-cogs"></i>
-                        </div>
-                        <h3>Integración de APIs</h3>
-                        <p>Desarrollo e integración de APIs REST para conectar sistemas y automatizar procesos empresariales.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Emilio <span style="color:var(--accent)">Guerrero</span></h3>
+          <p>Desarrollador Backend especializado en crear soluciones web robustas y eficientes con PHP, Laravel y más.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Navegación</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Inicio</a></li>
+            <li><a href="#about">Sobre mí</a></li>
+            <li><a href="#services">Servicios</a></li>
+            <li><a href="#projects">Proyectos</a></li>
+            <li><a href="#contact">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Sígueme</h4>
+          <div class="footer-social">
+            <a href="https://www.linkedin.com/in/emilio-guerrero-80b964280" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/Groe21" target="_blank"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 <span>Emilio Guerrero</span>. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
 
-        <!-- Projects Section -->
-        <section id="projects" class="projects-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Proyectos Destacados</h2>
-                    <p class="section-subtitle">Algunos de mis trabajos recientes</p>
-                </div>
-                <div class="projects-grid">
-                    <!-- Proyecto 1: ESPOMALIA - Gestión Portuaria Integral -->
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="assets/img/proyecto-espomalia.jpg" alt="ESPOMALIA" onerror="this.src='assets/img/placeholder-project.svg'">
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="#" class="project-link" title="Ver más">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3>ESPOMALIA - Gestión Portuaria Integral</h3>
-                            <p>Aplicación web de alto rendimiento para la administración de servicios portuarios y contenido dinámico.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Laravel 9</span>
-                                <span class="tech-tag">MySQL</span>
-                                <span class="tech-tag">Mail Syntax</span>
-                                <span class="tech-tag">Bootstrap</span>
-                            </div>
-                            <div class="project-footer">
-                                <span class="project-year">2025</span>
-                            </div>
-                        </div>
-                    </div>
+  <!-- Scroll top -->
+  <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 
-                    <!-- Proyecto 2: DISTRI-JARCA - Plataforma Corporativa -->
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="assets/img/proyecto-distrijarca.jpg" alt="DISTRI-JARCA" onerror="this.src='assets/img/placeholder-project.svg'">
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="#" class="project-link" title="Ver más">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3>DISTRI-JARCA - Plataforma Corporativa</h3>
-                            <p>Sitio web profesional para distribución de productos premium con enfoque en experiencia de usuario.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">JavaScript (ES6+)</span>
-                                <span class="tech-tag">HTML5</span>
-                                <span class="tech-tag">CSS3</span>
-                                <span class="tech-tag">Animaciones</span>
-                            </div>
-                            <div class="project-footer">
-                                <span class="project-year">2025</span>
-                            </div>
-                        </div>
-                    </div>
+  <script>
+    // ── Typing effect ────────────────────────────────────────────────
+    const phrases = [
+      'Desarrollador Backend',
+      'PHP & Laravel Developer',
+      'MySQL / PostgreSQL',
+      'Ubuntu Server Admin',
+      'APIs REST'
+    ];
+    let pi = 0, ci = 0, deleting = false;
+    const el = document.getElementById('heroTitle');
+    function type() {
+      const cur = phrases[pi];
+      if (!deleting) {
+        el.textContent = cur.slice(0, ++ci);
+        if (ci === cur.length) { deleting = true; setTimeout(type, 1600); return; }
+      } else {
+        el.textContent = cur.slice(0, --ci);
+        if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
+      }
+      setTimeout(type, deleting ? 50 : 90);
+    }
+    type();
 
-                    <!-- Proyecto 3: Sistema de Gestión "Las Águilas del Saber" -->
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="assets/img/proyecto-aguilas.jpg" alt="Las Águilas del Saber" onerror="this.src='assets/img/placeholder-project.svg'">
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="#" class="project-link" title="Ver más">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3>Sistema de Gestión "Las Águilas del Saber"</h3>
-                            <p>Software de gestión documental y administrativa.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">PHP</span>
-                                <span class="tech-tag">PostgreSQL</span>
-                                <span class="tech-tag">Bootstrap</span>
-                            </div>
-                            <div class="project-footer">
-                                <span class="project-year">2025</span>
-                            </div>
-                        </div>
-                    </div>
+    // ── Navbar scroll ────────────────────────────────────────────────
+    const navbar = document.getElementById('navbar');
+    const links  = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+      document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 400);
+      // Active link
+      let cur = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
+      links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + cur));
+    });
 
-                    <!-- Proyecto 4: Plataforma Web CIMO -->
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="assets/img/proyecto-cimo.jpg" alt="CIMO" onerror="this.src='assets/img/placeholder-project.svg'">
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="#" class="project-link" title="Ver más">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3>Plataforma Web CIMO</h3>
-                            <p>Sistema informativo y administrativo para el Colegio de Ingenieros Mecánicos de El Oro.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">PHP</span>
-                                <span class="tech-tag">MySQL</span>
-                                <span class="tech-tag">JavaScript</span>
-                            </div>
-                            <div class="project-footer">
-                                <span class="project-year">2024</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    // ── Mobile nav ───────────────────────────────────────────────────
+    const toggle = document.getElementById('navToggle');
+    const menu   = document.getElementById('navMenu');
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('open');
+      menu.classList.toggle('open');
+    });
+    links.forEach(l => l.addEventListener('click', () => {
+      toggle.classList.remove('open');
+      menu.classList.remove('open');
+    }));
 
-        <!-- Experience Timeline -->
-        <section id="experience" class="experience-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Experiencia & Educación</h2>
-                    <p class="section-subtitle">Mi trayectoria profesional y académica</p>
-                </div>
-                <div class="timeline">
-                    <!-- Experiencia -->
-                    <div class="timeline-item">
-                        <div class="timeline-icon experience-icon">
-                            <i class="fas fa-briefcase"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <span class="timeline-date">2024</span>
-                            <h3>Desarrollador Web</h3>
-                            <h4>Colegio de Ingenieros Mecánicos de El Oro (CIMO)</h4>
-                            <p>Colaboré en la creación de una plataforma web integral, tanto informativa como administrativa, que facilita la gestión de las actividades y procesos del colegio. Utilicé PHP y MySQL para desarrollar un sistema dinámico y eficiente.</p>
-                        </div>
-                    </div>
+    // ── Scroll reveal ─────────────────────────────────────────────────
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          e.target.style.transitionDelay = (i % 4) * 0.08 + 's';
+          e.target.classList.add('visible');
+          revealObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-                    <div class="timeline-item">
-                        <div class="timeline-icon experience-icon">
-                            <i class="fas fa-briefcase"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <span class="timeline-date">2024</span>
-                            <h3>Desarrollador Web</h3>
-                            <h4>Escuela "Las Águilas del Saber"</h4>
-                            <p>Liderando el desarrollo de una página administrativa y un sistema de gestión documental utilizando PHP y PostgreSQL. Responsable de la implementación de bases de datos, funcionalidades clave y la integración del sistema (90% completado).</p>
-                        </div>
-                    </div>
+    // ── Skill bars on scroll ─────────────────────────────────────────
+    const skillObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('.skill-progress').forEach(bar => {
+            bar.style.width = bar.dataset.width + '%';
+          });
+          skillObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.skill-category').forEach(el => skillObs.observe(el));
 
-                    <!-- Educación -->
-                    <div class="timeline-item">
-                        <div class="timeline-icon education-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <span class="timeline-date">2023 - Actualidad</span>
-                            <h3>Tecnología Superior en Desarrollo de Software</h3>
-                            <h4>Instituto Tecnológico Superior Universitario Ismael Pérez Pazmiño</h4>
-                            <p>Cursando cuarto ciclo. Participación destacada en casa abierta con proyectos de desarrollo web, APIs, Python y prácticas pre-profesionales.</p>
-                        </div>
-                    </div>
+    // ── Gallery modal ─────────────────────────────────────────────────
+    const modal = document.getElementById('aguilasGalleryModal');
+    document.getElementById('aguilasGalleryBtn').addEventListener('click', e => { e.preventDefault(); modal.classList.add('open'); });
+    document.getElementById('closeAguilasGallery').addEventListener('click', () => modal.classList.remove('open'));
+    modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('open'); });
 
-                    <div class="timeline-item">
-                        <div class="timeline-icon education-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <span class="timeline-date">2023</span>
-                            <h3>Bachiller Técnico - TICs Informática</h3>
-                            <h4>Colegio de Bachillerato Jorge Icaza</h4>
-                            <p>Cursos de programación, desarrollo web y electrónica. Primer lugar en exposiciones técnicas de TICs e informática.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    // ── Scroll top ────────────────────────────────────────────────────
+    document.getElementById('scrollTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-        <!-- Skills Section -->
-        <section id="skills" class="skills-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Habilidades Técnicas</h2>
-                    <p class="section-subtitle">Tecnologías y herramientas que domino</p>
-                </div>
-                <div class="skills-content">
-                    <div class="skills-categories">
-                        <!-- Backend & Calidad -->
-                        <div class="skill-category">
-                            <h3><i class="fas fa-code"></i> Backend & Calidad</h3>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Laravel 10/11 (Avanzado)</span>
-                                    <span class="skill-level">Avanzado</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 90%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">PHP 8.x (Avanzado)</span>
-                                    <span class="skill-level">Avanzado</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 90%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">PHPUnit / Testing</span>
-                                    <span class="skill-level">Avanzado</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 85%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">APIs RESTful</span>
-                                    <span class="skill-level">Avanzado</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 90%"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Bases de Datos -->
-                        <div class="skill-category">
-                            <h3><i class="fas fa-database"></i> Bases de Datos</h3>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">MySQL (Experto)</span>
-                                    <span class="skill-level">Experto</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 95%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">PostgreSQL (Avanzado)</span>
-                                    <span class="skill-level">Avanzado</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 90%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Diseño Relacional</span>
-                                    <span class="skill-level">Avanzado</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 90%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Optimización de Queries</span>
-                                    <span class="skill-level">Avanzado</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 85%"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- DevOps & Server -->
-                        <div class="skill-category">
-                            <h3><i class="fas fa-server"></i> DevOps & Server</h3>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Ubuntu Server (Avanzado)</span>
-                                    <span class="skill-level">Avanzado</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 90%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Iptables / Firewalls</span>
-                                    <span class="skill-level">Avanzado</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 85%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Cockpit / Admin Remoto</span>
-                                    <span class="skill-level">Avanzado</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 85%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Git & GitHub</span>
-                                    <span class="skill-level">Avanzado</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 90%"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Frontend -->
-                        <div class="skill-category">
-                            <h3><i class="fas fa-paint-brush"></i> Frontend</h3>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">JavaScript / ES6</span>
-                                    <span class="skill-level">Avanzado</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 90%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Bootstrap 5</span>
-                                    <span class="skill-level">Avanzado</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 90%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">HTML5 / CSS3</span>
-                                    <span class="skill-level">Avanzado</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 95%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Responsive Design</span>
-                                    <span class="skill-level">Avanzado</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 90%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tech-icons-grid">
-                        <div class="tech-icon" title="HTML5">
-                            <i class="fab fa-html5"></i>
-                        </div>
-                        <div class="tech-icon" title="CSS3">
-                            <i class="fab fa-css3-alt"></i>
-                        </div>
-                        <div class="tech-icon" title="JavaScript">
-                            <i class="fab fa-js"></i>
-                        </div>
-                        <div class="tech-icon" title="PHP">
-                            <i class="fab fa-php"></i>
-                        </div>
-                        <div class="tech-icon" title="Laravel">
-                            <i class="fab fa-laravel"></i>
-                        </div>
-                        <div class="tech-icon" title="Python">
-                            <i class="fab fa-python"></i>
-                        </div>
-                        <div class="tech-icon" title="MySQL">
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <div class="tech-icon" title="Linux">
-                            <i class="fab fa-linux"></i>
-                        </div>
-                        <div class="tech-icon" title="GitHub">
-                            <i class="fab fa-github"></i>
-                        </div>
-                        <div class="tech-icon" title="Bootstrap">
-                            <i class="fab fa-bootstrap"></i>
-                        </div>
-                        <div class="tech-icon" title="Git">
-                            <i class="fab fa-git-alt"></i>
-                        </div>
-                        <div class="tech-icon" title="Docker">
-                            <i class="fab fa-docker"></i>
-                        </div>
-                    </div>
-
-                    <div class="certifications">
-                        <h3><i class="fas fa-certificate"></i> Certificaciones</h3>
-                        <div class="cert-grid">
-                            <div class="cert-item">
-                                <i class="fas fa-laptop-code"></i>
-                                <h4>Técnico Auxiliar en Computación</h4>
-                                <p>PUCE - 300 horas (2023)</p>
-                            </div>
-                            <div class="cert-item">
-                                <i class="fas fa-shield-alt"></i>
-                                <h4>Manejo de Firewalls con Iptables</h4>
-                                <p>ITSUP - 40 horas (2024)</p>
-                            </div>
-                            <div class="cert-item">
-                                <i class="fas fa-network-wired"></i>
-                                <h4>Redes con Linux</h4>
-                                <p>ITSUP - 40 horas (2024)</p>
-                            </div>
-                            <div class="cert-item">
-                                <i class="fas fa-language"></i>
-                                <h4>Inglés A2</h4>
-                                <p>ITSUP - 100 horas (2024)</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Contacto</h2>
-                    <p class="section-subtitle">¿Tienes un proyecto en mente? ¡Hablemos!</p>
-                </div>
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <h3>Información de Contacto</h3>
-                        <p>Estoy disponible para proyectos freelance, colaboraciones o simplemente para una conversación sobre tecnología.</p>
-                        
-                        <div class="contact-details">
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <div class="contact-text">
-                                    <h4>Email</h4>
-                                    <a href="mailto:guerreroemilio001@gmail.com">guerreroemilio001@gmail.com</a>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="fas fa-phone"></i>
-                                </div>
-                                <div class="contact-text">
-                                    <h4>Teléfono</h4>
-                                    <a href="tel:+593961115417">+593 96 111 5417</a>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <div class="contact-text">
-                                    <h4>Ubicación</h4>
-                                    <p>Quinindé, Esmeraldas, Ecuador</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="contact-social">
-                            <h4>Redes Sociales</h4>
-                            <div class="social-links">
-                                <a href="https://www.linkedin.com/in/emilio-guerrero-80b964280" target="_blank" class="social-link">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="https://github.com/Groe21" target="_blank" class="social-link">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="download-cv">
-                            <a href="assets/cv/CV_Emilio_Guerrero.pdf" class="btn btn-download" download>
-                                <i class="fas fa-file-download"></i> Descargar CV
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="contact-form-wrapper">
-                        <form class="contact-form" id="contactForm">
-                            <div class="form-group">
-                                <label for="name">Nombre Completo</label>
-                                <input type="text" id="name" name="name" required placeholder="Tu nombre">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Correo Electrónico</label>
-                                <input type="email" id="email" name="email" required placeholder="tu@email.com">
-                            </div>
-                            <div class="form-group">
-                                <label for="subject">Asunto</label>
-                                <input type="text" id="subject" name="subject" required placeholder="Asunto del mensaje">
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Mensaje</label>
-                                <textarea id="message" name="message" rows="5" required placeholder="Escribe tu mensaje aquí..."></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-submit">
-                                <i class="fas fa-paper-plane"></i> Enviar Mensaje
-                            </button>
-                            <div id="formMessage" class="form-message"></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-section">
-                        <h3>Emilio Guerrero</h3>
-                        <p>Desarrollador Backend especializado en crear soluciones web robustas y eficientes.</p>
-                    </div>
-                    <div class="footer-section">
-                        <h4>Enlaces Rápidos</h4>
-                        <ul class="footer-links">
-                            <li><a href="#home">Inicio</a></li>
-                            <li><a href="#about">Sobre mí</a></li>
-                            <li><a href="#services">Servicios</a></li>
-                            <li><a href="#projects">Proyectos</a></li>
-                            <li><a href="#contact">Contacto</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <h4>Sígueme</h4>
-                        <div class="footer-social">
-                            <a href="https://www.linkedin.com/in/emilio-guerrero-80b964280" target="_blank">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="https://github.com/Groe21" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <p>&copy; 2025 Emilio Guerrero. Todos los derechos reservados.</p>
-                </div>
-            </div>
-        </footer>
-
-        <!-- Scroll to Top Button -->
-        <button id="scrollTop" class="scroll-top">
-            <i class="fas fa-arrow-up"></i>
-        </button>
-
-        <!-- Core theme JS -->
-        <script src="js/scripts.js"></script>
-    </body>
+    // ── Contact form (mailto fallback) ────────────────────────────────
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name    = document.getElementById('name').value;
+      const email   = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+      const body    = encodeURIComponent(`Nombre: ${name}\nEmail: ${email}\n\n${message}`);
+      window.location.href = `mailto:guerreroemilio001@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+      const msg = document.getElementById('formMessage');
+      msg.textContent = '¡Mensaje listo! Se abrirá tu cliente de correo.';
+      msg.className = 'form-message success';
+    });
+  </script>
+</body>
 </html>

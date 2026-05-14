@@ -1,3 +1,21 @@
+// Modal Galería Águilas del Saber
+document.addEventListener('DOMContentLoaded', function() {
+    var aguilasBtn = document.getElementById('aguilasGalleryBtn');
+    var aguilasModal = document.getElementById('aguilasGalleryModal');
+    var closeAguilas = document.getElementById('closeAguilasGallery');
+    if (aguilasBtn && aguilasModal && closeAguilas) {
+        aguilasBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            aguilasModal.style.display = 'flex';
+        });
+        closeAguilas.addEventListener('click', function() {
+            aguilasModal.style.display = 'none';
+        });
+        aguilasModal.addEventListener('click', function(e) {
+            if (e.target === aguilasModal) aguilasModal.style.display = 'none';
+        });
+    }
+});
 // ==================================
 // NAVIGATION
 // ==================================
